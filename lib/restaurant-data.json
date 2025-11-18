@@ -1,0 +1,70 @@
+{
+  "restaurant": {
+    "name": "PositiQ Restaurant",
+    "currency": "LKR",
+    "serviceCharge": 10
+  },
+  "categories": [
+    {
+      "id": 1,
+      "name": "Beverages",
+      "icon": "🥤",
+      "subCategories": [
+        { "id": 101, "name": "Cold Drinks" },
+        { "id": 102, "name": "Hot Drinks" },
+        { "id": 103, "name": "Alcoholic" }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Food",
+      "icon": "🍽️",
+      "subCategories": [
+        { "id": 201, "name": "Appetizers" },
+        { "id": 202, "name": "Main Course" },
+        { "id": 203, "name": "Desserts" }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Snacks",
+      "icon": "🥪",
+      "subCategories": []
+    }
+  ],
+  "products": [
+    { "id": 1, "name": "Coca Cola", "price": 340, "category": 1, "subCategory": 101, "image": "🥤" },
+    { "id": 2, "name": "Sprite", "price": 320, "category": 1, "subCategory": 101, "image": "🥤" },
+    { "id": 3, "name": "Fanta Orange", "price": 300, "category": 1, "subCategory": 101, "image": "🥤" },
+    { "id": 4, "name": "Iced Tea", "price": 280, "category": 1, "subCategory": 101, "image": "🧊" },
+    { "id": 5, "name": "Coffee", "price": 450, "category": 1, "subCategory": 102, "image": "☕" },
+    { "id": 6, "name": "Tea", "price": 320, "category": 1, "subCategory": 102, "image": "🫖" },
+    { "id": 7, "name": "Hot Chocolate", "price": 380, "category": 1, "subCategory": 102, "image": "🍫" },
+    { "id": 8, "name": "Beer", "price": 850, "category": 1, "subCategory": 103, "image": "🍺" },
+    { "id": 9, "name": "Wine", "price": 1200, "category": 1, "subCategory": 103, "image": "🍷" },
+    { "id": 10, "name": "Spring Rolls", "price": 550, "category": 2, "subCategory": 201, "image": "🍱" },
+    { "id": 11, "name": "Chicken Soup", "price": 650, "category": 2, "subCategory": 201, "image": "🍲" },
+    { "id": 12, "name": "Grilled Chicken", "price": 1250, "category": 2, "subCategory": 202, "image": "🍗" },
+    { "id": 13, "name": "Biryani", "price": 980, "category": 2, "subCategory": 202, "image": "🍚" },
+    { "id": 14, "name": "Fish Curry", "price": 1100, "category": 2, "subCategory": 202, "image": "🐟" },
+    { "id": 15, "name": "Ice Cream", "price": 420, "category": 2, "subCategory": 203, "image": "🍦" },
+    { "id": 16, "name": "Cheesecake", "price": 580, "category": 2, "subCategory": 203, "image": "🍰" },
+    { "id": 17, "name": "Sandwich", "price": 450, "category": 3, "subCategory": null, "image": "🥪" },
+    { "id": 18, "name": "Fries", "price": 280, "category": 3, "subCategory": null, "image": "🍟" },
+    { "id": 19, "name": "Burger", "price": 620, "category": 3, "subCategory": null, "image": "🍔" }
+  ],
+  "tables": [
+    { "id": 1, "number": 1, "capacity": 2, "x": 20, "y": 20, "status": "available" },
+    { "id": 2, "number": 2, "capacity": 2, "x": 120, "y": 20, "status": "available" },
+    { "id": 3, "number": 3, "capacity": 2, "x": 220, "y": 20, "status": "available" },
+    { "id": 4, "number": 4, "capacity": 2, "x": 320, "y": 20, "status": "available" },
+    { "id": 5, "number": 5, "capacity": 4, "x": 20, "y": 120, "status": "occupied" },
+    { "id": 6, "number": 6, "capacity": 4, "x": 120, "y": 120, "status": "available" },
+    { "id": 7, "number": 7, "capacity": 4, "x": 220, "y": 120, "status": "available" },
+    { "id": 8, "number": 8, "capacity": 4, "x": 320, "y": 120, "status": "occupied" },
+    { "id": 9, "number": 9, "capacity": 6, "x": 20, "y": 220, "status": "available" },
+    { "id": 10, "number": 10, "capacity": 6, "x": 120, "y": 220, "status": "available" },
+    { "id": 11, "number": 11, "capacity": 6, "x": 220, "y": 220, "status": "available" },
+    { "id": 12, "number": 12, "capacity": 6, "x": 320, "y": 220, "status": "occupied" }
+  ]
+}
