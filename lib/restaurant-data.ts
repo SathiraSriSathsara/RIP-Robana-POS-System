@@ -1,16 +1,59 @@
-import restaurantData from "./restaurant-data.json"
+import {
+  RestaurantResponse,
+  Category,
+  SubCategory,
+  Product,
+  Table
+} from "./types"
 
-export type Category = (typeof restaurantData.categories)[0]
-export type SubCategory = Category["subCategories"][0]
-export type Product = (typeof restaurantData.products)[0]
-export type Table = (typeof restaurantData.tables)[0]
+// optional in–memory cache to avoid refetching
+let cachedData: RestaurantResponse | null = null
 
-export const getRestaurantData = () => restaurantData
-export const getCategories = () => restaurantData.categories
-export const getProducts = () => restaurantData.products
-export const getTables = () => restaurantData.tables
-export const getProductsByCategory = (categoryId: number, subCategoryId?: number) => {
-  return restaurantData.products.filter((p) => {
+// --- MAIN FETCH FUNCTION ---
+export async function fetchRestaurantData(): Promise<RestaurantResponse> {
+  if (cachedData) return cachedData
+
+  const res = await fetch("https://your-api.com/restaurant-data", {
+    cache: "no-store" // prevents Next.js caching
+  })
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch restaurant data")
+  }
+
+  const data = await res.json()
+  cachedData = data
+  return data
+}
+
+// --- DATA HELPERS ---
+
+export async function getRestaurantData(): Promise<RestaurantResponse> {
+  return fetchRestaurantData()
+}
+
+export async function getCategories(): Promise<Category[]> {
+  const data = await fetchRestaurantData()
+  return data.categories
+}
+
+export async function getProducts(): Promise<Product[]> {
+  const data = await fetchRestaurantData()
+  return data.products
+}
+
+export async function getTables(): Promise<Table[]> {
+  const data = await fetchRestaurantData()
+  return data.tables
+}
+
+export async function getProductsByCategory(
+  categoryId: number,
+  subCategoryId?: number
+): Promise<Product[]> {
+  const data = await fetchRestaurantData()
+
+  return data.products.filter((p) => {
     if (subCategoryId !== undefined) {
       return p.category === categoryId && p.subCategory === subCategoryId
     }

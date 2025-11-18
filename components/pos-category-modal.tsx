@@ -1,16 +1,17 @@
 "use client"
 
-import { getCategories } from "@/lib/restaurant-data"
 import { ChevronDown, X } from "lucide-react"
 import { useState } from "react"
+import { Category } from "@/lib/types"
 
-interface POSCategoryModalProps {
+export interface POSCategoryModalProps {
   isOpen: boolean
   onClose: () => void
   selectedCategory: number | null
   selectedSubCategory: number | null
   onCategoryChange: (id: number | null) => void
   onSubCategoryChange: (id: number | null) => void
+  categories: Category[]
 }
 
 export default function POSCategoryModal({
@@ -20,8 +21,8 @@ export default function POSCategoryModal({
   selectedSubCategory,
   onCategoryChange,
   onSubCategoryChange,
+  categories, // use the prop here
 }: POSCategoryModalProps) {
-  const categories = getCategories()
   const [expandedCategory, setExpandedCategory] = useState<number | null>(selectedCategory)
 
   const handleCategoryClick = (categoryId: number) => {
